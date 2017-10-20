@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7CA3475E-3B55-4D6D-9D96-0D597F97AC2B}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>LRSystem</RootNamespace>
+    <AssemblyName>LRSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Frm_Event.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Event.Designer.cs">
+      <DependentUpon>Frm_Event.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_EventList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_EventList.Designer.cs">
+      <DependentUpon>Frm_EventList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Property.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Property.Designer.cs">
+      <DependentUpon>Frm_Property.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_PropertyList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_PropertyList.Designer.cs">
+      <DependentUpon>Frm_PropertyList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Relationship.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Relationship.Designer.cs">
+      <DependentUpon>Frm_Relationship.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_RelationshipList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_RelationshipList.Designer.cs">
+      <DependentUpon>Frm_RelationshipList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Sentence.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Sentence.Designer.cs">
+      <DependentUpon>Frm_Sentence.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_SentenceList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_SentenceList.Designer.cs">
+      <DependentUpon>Frm_SentenceList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_vocabulary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_vocabulary.Designer.cs">
+      <DependentUpon>Frm_vocabulary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_VocabularyList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_VocabularyList.Designer.cs">
+      <DependentUpon>Frm_VocabularyList.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Charts.v10.2.Core">
+      <HintPath>..\..\DLL\DevExpress.Charts.v10.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v10.2">
+      <HintPath>..\..\DLL\DevExpress.Data.v10.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v10.2.Linq">
+      <HintPath>..\..\DLL\DevExpress.Data.v10.2.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Design.v10.2">
+      <HintPath>..\..\DLL\DevExpress.Design.v10.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v10.2">
+      <HintPath>..\..\DLL\DevExpress.Utils.v10.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v10.2">
+      <HintPath>..\..\DLL\DevExpress.XtraBars.v10.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v10.2.Design">
+      <HintPath>..\..\DLL\DevExpress.XtraBars.v10.2.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v10.2">
+      <HintPath>..\..\DLL\DevExpress.XtraCharts.v10.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v10.2.Design">
+      <HintPath>..\..\DLL\DevExpress.XtraCharts.v10.2.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v10.2.Extensions">
+      <HintPath>..\..\DLL\DevExpress.XtraCharts.v10.2.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v10.2.UI">
+      <HintPath>..\..\DLL\DevExpress.XtraCharts.v10.2.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v10.2">
+      <HintPath>..\..\DLL\DevExpress.XtraEditors.v10.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v10.2.Design">
+      <HintPath>..\..\DLL\DevExpress.XtraEditors.v10.2.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v10.2">
+      <HintPath>..\..\DLL\DevExpress.XtraGrid.v10.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v10.2.Design">
+      <HintPath>..\..\DLL\DevExpress.XtraGrid.v10.2.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v10.2">
+      <HintPath>..\..\DLL\DevExpress.XtraLayout.v10.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v10.2.Design">
+      <HintPath>..\..\DLL\DevExpress.XtraLayout.v10.2.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v10.2">
+      <HintPath>..\..\DLL\DevExpress.XtraRichEdit.v10.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v10.2.Design">
+      <HintPath>..\..\DLL\DevExpress.XtraRichEdit.v10.2.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v10.2.Extensions">
+      <HintPath>..\..\DLL\DevExpress.XtraRichEdit.v10.2.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v10.2">
+      <HintPath>..\..\DLL\DevExpress.XtraTreeList.v10.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v10.2.Design">
+      <HintPath>..\..\DLL\DevExpress.XtraTreeList.v10.2.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Frm_Event.resx">
+      <DependentUpon>Frm_Event.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_EventList.resx">
+      <DependentUpon>Frm_EventList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Property.resx">
+      <DependentUpon>Frm_Property.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_PropertyList.resx">
+      <DependentUpon>Frm_PropertyList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Relationship.resx">
+      <DependentUpon>Frm_Relationship.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_RelationshipList.resx">
+      <DependentUpon>Frm_RelationshipList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Sentence.resx">
+      <DependentUpon>Frm_Sentence.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_SentenceList.resx">
+      <DependentUpon>Frm_SentenceList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_vocabulary.resx">
+      <DependentUpon>Frm_vocabulary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_VocabularyList.resx">
+      <DependentUpon>Frm_VocabularyList.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

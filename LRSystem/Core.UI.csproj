@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7CA3475E-3B55-4D6D-9D96-0D597F97AC2B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>LRSystem</RootNamespace>
+    <AssemblyName>LRSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core_Enter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core_Enter.Designer.cs">
+      <DependentUpon>Core_Enter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="entrance.cs" />
+    <Compile Include="Frm_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Main.Designer.cs">
+      <DependentUpon>Frm_Main.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Charts.v16.2.Core">
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v16.2.Core">
+    </Reference>
+    <Reference Include="DevExpress.Printing.v16.2.Core">
+    </Reference>
+    <Reference Include="DevExpress.Data.v16.2">
+    </Reference>
+    <Reference Include="DevExpress.Design.v16.2">
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v16.2.Core, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.SpellChecker.v16.2.Core, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v16.2">
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v16.2">
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v16.2.Design">
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v16.2.Wizard">
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v16.2">
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v16.2.Design">
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v16.2.Extensions">
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v16.2.UI">
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v16.2">
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v16.2.Design">
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v16.2">
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v16.2">
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v16.2.Design">
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v16.2">
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v16.2.Design">
+    </Reference>
+    <Reference Include="DevExpress.Office.v16.2.Core">
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v16.2.Core">
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v16.2">
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v16.2.Design">
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v16.2.Extensions">
+    </Reference>
+    <Reference Include="DevExpress.XtraSpellChecker.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v16.2">
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v16.2.Design">
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Core_Enter.resx">
+      <DependentUpon>Core_Enter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Main.resx">
+      <DependentUpon>Frm_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="公用\" />
+    <Folder Include="录入\信息\" />
+    <Folder Include="录入\关系\" />
+    <Folder Include="录入\属性\" />
+    <Folder Include="查询\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LRSystemClient\Core.Client.csproj">
+      <Project>{C670BDCA-B592-4586-AEAC-15C044AAF008}</Project>
+      <Name>Core.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LRSystemSPI\Core.SPI.csproj">
+      <Project>{bdba9ad2-e80a-4eb7-a4f9-72bde9bf632e}</Project>
+      <Name>Core.SPI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="README.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

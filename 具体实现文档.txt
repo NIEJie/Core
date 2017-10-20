@@ -1,0 +1,145 @@
+具体实现文档：
+1. 设置数据库
+2. 设置实体类
+3. 全局变量
+4. 状态的颜色设计
+5. 页面功能及1-4修改（通过详细场景的描述，完善设计）
+
+
+
+数据库：
+1. 事件
+2. 句子
+3. 词汇
+4. 属性树
+5. 关系树
+6. 属性数据
+7. 关系数据
+
+实体类：
+1. 事件
+	1.1 List & BindingList
+	1.2 Info
+	1.3 OList & OBindingList
+	1.4 OInfo
+2. 句子
+	2.1 List & BindingList
+	2.2 Info
+	2.3 OList
+	2.4 OInfo
+3. 词汇
+	3.1 List & BindingList
+	3.2 Info
+	3.3 OList
+	3.4 OInfo
+4. 属性树
+	4.1 List
+	4.2 Info
+	4.3 OList
+	4.4 OInfo
+5. 关系树
+	5.1 List
+	5.2 Info
+6. 属性数据
+	6.1 DataList
+	6.2 DataInfo
+	6.3 ODataList
+	6.4 ODataInfo
+7. 关系数据
+	7.1 DataList
+	7.2 DataInfo
+
+
+全局变量：
+1. 服务端交互 CoreClient
+2. 事件列表：g_EventList & g_EventBindingList；g_EventInfo；
+3. 句子列表：g_SentenceList & g_SentenceBindingList；g_SentenceInfo；
+4. 词汇列表：g_VocabularyList & g_VocabularyBindingList；g_VocabularyInfo；
+5. 属性树：g_PropertyList；g_PropertyInfo；g_PropertyDataList；g_PropertyDataInfo；
+6. 关系树：g_RelationList；g_RelationInfo；g_RelationDataList；g_RelationDataInfo；
+7. tab页：
+	事件列表：g_OEventList & g_OEventBindingList；g_OEventInfo；
+	句子列表：g_OSentenceList & g_OSentenceBindingList；g_OSentenceInfo；
+	词汇列表：g_OVocabularyList & g_OVocabularyBindingList；g_OVocabularyInfo；
+	属性树：g_OPropertyList；g_OPropertyInfo；g_OPropertyDataList；g_OPropertyDataInfo；
+
+
+状态的颜色设计：
+1. 新增 A 淡绿色字
+2. 编辑 E 淡黄色字
+3. 保存 S 黑字
+4. 作废 I 灰字
+5. 对应数据的行 O 红色背景？
+
+页面功能：
+
+使用BindingList是为了当新增行和删除行的时候比较方便，而且立刻就能看到效果，
+不需要手动刷新数据源+记录焦点位置+重新定位到新焦点位置。
+
+注意：：由于有分页和一对多的关系，比如一个事件对应多条句子，在切换时切换句子列表
+所以，BindingList是List的一部分过滤出来的，所以需要加一个BList作为两者之间的接口
+应用场景：
+当事件触发焦点行变化时，需要将当前句子、词汇的BindingList的修改反馈给List，
+然后重新获取新焦点行的BList转化为BindingList作为数据源。
+---注意：反馈有几种情况，焦点行触发，只是其中一种
+一共有绑定、触发焦点、新增、编辑、保存、作废 6个基本操作，其中绑定、保存不会触发反馈，
+触发焦点和其他操作的反馈是互斥的，即只要有一方的反馈写了，另一方直接用就可以
+
+触发焦点的反馈可以直接写，很容易，但是有致命缺陷：无法实时返回数据，很容易出现左右结构数据不一致问题；
+
+重要：！！！！如果从另一个角度想，反馈的本质目的是，数据有了改动，导致需要对数据源进行修改，
+所以只要能把控住数据修改的地方，那么自然反馈都是实时的了！！！！
+我觉得可以加事件：：
+1. 新增：已经提前反馈（错误：XXXX可以在addnewrow里做反馈 or 在addnewnode里做反馈XXXXX）
+2. 编辑：分别给name和note加textchanged事件（无编辑按钮）
+3. 作废：直接反馈
+特殊操作：
+4. 勾选属性树：加事件
+5. 勾选关系树：加事件
+6. 勾选对应属性树：加事件
+综上：没按钮的加事件，以保证数据的实时性。
+注意：只有编辑、作废、勾选，这三个功能会影响数据的实时性（因为操作是瞬时的），新增虽然会修改数据
+但是并不会实时影响结构（新增是一个有步骤，多层级的操作），新增的复杂结构，导致其可以在处理过程中，
+直接影响数据源，不需要反馈（或者说可以把反馈纳入到新增的操作里；；；其他功能都是反馈和功能相搭配）
+
+
+1. 事件页面
+	1.1 绑定数据
+		1.1.1 Load ： g_EventList & g_EventBindingList = GetEventList（int PCode）；绑定数据源
+		1.1.2 Load ： SetStateColor()
+	1.2 触发焦点
+		1.2.1 获取新焦点：g_EventInfo
+		1.2.2 刷新句子：g_SentenceList & g_SentencetBindingList = GetSentenceList（string infoCode）；绑定数据源
+		1.2.3 刷新词汇：g_VocabularyList & g_VocabularyBindingList = GetVocabularyList（string infoCode）；绑定数据源
+		1.2.4 刷新属性树：g_PropertyDataList = GetPropertyDataList（string infoCode）；绑定数据源
+		1.2.5 刷新P_flag = E
+	1.3 新增
+		1.3.1 触发焦点行（前置）
+		1.3.2 新增行，并为行赋值，且添加到数据源里
+		1.3.3 触发焦点行（自动定位新增行上）
+	1.4 作废
+		1.4.1 修改状态为作废，且反馈给数据源
+
+2. 句子页面
+	2.1 绑定数据
+		2.1.1 Load ： g_SentencetList & g_EventBindingList = GetEventList（int PCode）；绑定数据源
+		2.1.2 Load ： SetStateColor()
+	2.2 触发焦点
+		2.2.1 获取新焦点：g_EventInfo
+		2.2.2 刷新句子：
+		2.2.3 刷新词汇：
+		2.2.4 刷新属性树：
+		2.2.5 刷新P_flag = E
+	2.3 新增
+		2.3.1 触发焦点行（前置）
+		2.3.2 新增行，并为行赋值，且添加到数据源里
+		2.3.3 触发焦点行（自动定位新增行上）
+	2.4 作废
+		2.4.1 修改状态为作废，且反馈给数据源
+3. 词汇页面
+4. 属性树页面
+5. 关系树页面
+6. 对应事件页面
+7. 对应句子页面
+8. 对应词汇页面
+9. 对应属性页面
